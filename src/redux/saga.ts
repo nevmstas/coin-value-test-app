@@ -1,6 +1,7 @@
-import { all, call, takeLatest, put } from 'redux-saga/effects'
+import { all, call, takeLatest, put, delay } from 'redux-saga/effects'
 import { ApiService } from '../api/apiService'
 import {
+    getCoins,
     getCoinsFailed,
     getCoinsSucceeded,
     setLoading,
@@ -15,6 +16,7 @@ export function* fetchCoinsWatcher() {
 }
 
 function* fetchTerminal(_: CoinsActionsType) {
+    yield console.log('fetchTerminal started...')
     try {
         yield put(setLoading(true))
         //@ts-ignore
@@ -25,6 +27,9 @@ function* fetchTerminal(_: CoinsActionsType) {
         yield put(getCoinsFailed(`fetching coins error ${e.message}`))
         yield put(setLoading(false))
     }
+    //coins value updating
+    yield delay(30000)
+    yield put(getCoins())
 }
 
 export default function* rootSaga() {

@@ -19,12 +19,16 @@ interface InitialStateType {
     coins: CoinType[]
     isLoading: Boolean
     error: string
+    currentPage: number
+    coinsPerPage: number
 }
 
 const initialState: InitialStateType = {
     coins: [],
     isLoading: false,
     error: '',
+    currentPage: 1,
+    coinsPerPage: 20
 }
 
 export const coinReducer = (

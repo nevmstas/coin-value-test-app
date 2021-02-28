@@ -15,11 +15,12 @@ export class ApiService {
                     limit: '100',
                     tsym: 'USD',
                 })
-
+            console.log(data)
             const mappedCoins: CoinType[] = []
             data.body.Data.forEach((coin: any) => {
                 mappedCoins.push(mapCoinObj(coin))
             })
+
             return mappedCoins
         } catch (error) {
             console.error(error)

@@ -1,21 +1,14 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getCoins } from './redux/redusers/Coins/actions'
 import { RootState } from './redux/redusers/rootReducer'
+import { Routes } from './Routes'
 
 const App: React.FC = () => {
-    const dispatch = useDispatch()
-    const { coins } = useSelector((state: RootState) => state.coins)
-
-    useEffect(() => {
-        dispatch(getCoins())
-    }, [dispatch])
-
     return (
         <div>
-            {coins.map((coin) => (
-                <div key={coin.id}>{coin.name}</div>
-            ))}
+           <Routes />
         </div>
     )
 }
