@@ -7,7 +7,7 @@ export const Routes = () => {
     return (
         <>
             <Route exact path='/'><CoinsTable /></Route>
-            <Route path='/:name'><CoinInfo /></Route>
+            <Route path='/:id'><CoinInfo /></Route>
         </>
     )
 }
