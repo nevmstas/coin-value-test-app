@@ -28,7 +28,7 @@ function* fetchTerminal(_: CoinsActionsType) {
         yield put(setLoading(false))
     }
     //coins value updating
-    yield delay(30000)
+    yield delay(3000)
     yield put(getCoins())
 }
 
